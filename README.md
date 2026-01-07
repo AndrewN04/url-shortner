@@ -13,14 +13,13 @@ Security-first URL shortener at `https://go.a04.dev`.
 
 ```
 url-shortener/
-├── apps/shortener/     # Next.js app
-│   ├── app/
-│   │   ├── [code]/route.ts       # GET /:code → redirect
-│   │   ├── api/v1/shorten/route.ts
-│   │   └── health/route.ts
-│   ├── lib/            # DB, auth, validation
-│   └── scripts/        # API key management
-├── extension/          # Browser extension
+├── app/                # Next.js app routes
+│   ├── [code]/route.ts       # GET /:code → redirect
+│   ├── api/v1/shorten/route.ts
+│   └── health/route.ts
+├── lib/                # DB, auth, validation
+├── scripts/            # API key management
+├── extension/          # Browser extension (coming)
 ├── deploy/             # Deployment docs
 └── docs/               # Architecture docs
 ```
@@ -36,10 +35,9 @@ url-shortener/
 ## Quick Start
 
 ```bash
-cd apps/shortener
 npm install
-cp .env.example .env
-# Edit .env with your DATABASE_URL and API_KEY_PEPPER
+cp .env.example .env.local
+# Edit .env.local with your DATABASE_URL and API_KEY_PEPPER
 npm run db:migrate
 npm run dev
 ```

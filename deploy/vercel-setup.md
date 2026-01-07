@@ -3,11 +3,10 @@
 ## 1. Create Vercel Project
 
 ```bash
-cd apps/shortener
 npx vercel --prod
 ```
 
-Or via dashboard: vercel.com/new → Import repo → Framework: Next.js
+Or via dashboard: vercel.com/new → Import repo → Framework: Next.js (auto-detected)
 
 ## 2. Add Domain
 

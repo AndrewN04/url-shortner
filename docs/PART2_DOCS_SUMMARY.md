@@ -15,7 +15,7 @@ A production-ready Next.js 16 application skeleton with:
 ## File Structure
 
 ```
-apps/shortener/
+url-shortener/
 ├── app/
 │   ├── globals.css          # Tailwind styles
 │   ├── layout.tsx           # Root layout
