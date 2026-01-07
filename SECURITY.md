@@ -25,14 +25,17 @@ DNS is resolved at creation; blocked if any IP is private.
 
 ## Token Management
 
-Format: `<key_id>.<secret>` (key_id stored, secret hashed)
+Format: `sk_<64-hex-chars>` (full key hashed with HMAC-SHA256)
 
 ```bash
 # Create
-npm run token:create --note "my token"
+npm run admin:create-key "my key"
+
+# List
+npm run admin:list-keys
 
 # Revoke
-npm run token:revoke <key_id>
+npm run admin:revoke-key <key_id>
 ```
 
 ## Link Expiration

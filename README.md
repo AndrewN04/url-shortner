@@ -4,9 +4,9 @@ Security-first URL shortener at `https://go.a04.dev`.
 
 ## Tech Stack
 
-- **Next.js 15** (App Router, Node.js runtime)
+- **Next.js 16** (App Router, Node.js runtime)
 - **Neon Postgres** (via Vercel Marketplace)
-- **Drizzle ORM** + `@neondatabase/serverless`
+- **@neondatabase/serverless** (HTTP driver)
 - **Browser Extension** (Manifest V3)
 
 ## Structure
@@ -17,9 +17,9 @@ url-shortener/
 │   ├── app/
 │   │   ├── [code]/route.ts       # GET /:code → redirect
 │   │   ├── api/v1/shorten/route.ts
-│   │   └── healthz/route.ts
+│   │   └── health/route.ts
 │   ├── lib/            # DB, auth, validation
-│   └── scripts/        # Token management
+│   └── scripts/        # API key management
 ├── extension/          # Browser extension
 ├── deploy/             # Deployment docs
 └── docs/               # Architecture docs
@@ -31,15 +31,25 @@ url-shortener/
 | ----------------- | ------ | ------------ | ------------------------- |
 | `/:code`          | GET    | None         | 302 redirect (or 404/410) |
 | `/api/v1/shorten` | POST   | Bearer token | Create short link         |
-| `/healthz`        | GET    | None         | Health check              |
+| `/health`         | GET    | None         | Health check              |
 
 ## Quick Start
 
 ```bash
 cd apps/shortener
 npm install
-npx vercel env pull .env.local
+cp .env.example .env
+# Edit .env with your DATABASE_URL and API_KEY_PEPPER
+npm run db:migrate
 npm run dev
+```
+
+## Admin Scripts
+
+```bash
+npm run admin:create-key "my key"  # Create API key
+npm run admin:list-keys            # List all keys
+npm run admin:revoke-key <key_id>  # Revoke a key
 ```
 
 ## Docs

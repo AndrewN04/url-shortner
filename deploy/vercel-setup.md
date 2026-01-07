@@ -38,7 +38,7 @@ node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
 
 Add in Vercel → Settings → Environment Variables:
 
-- `API_TOKEN_PEPPER`: (generated value)
+- `API_KEY_PEPPER`: (generated value)
 - `MAX_TTL_SECONDS`: `2592000`
 
 ## 5. Run Migrations
@@ -55,15 +55,15 @@ npm run db:migrate
 ## 6. Verify
 
 ```bash
-curl https://go.a04.dev/healthz
-# {"status":"ok"}
+curl https://go.a04.dev/health
+# {"status":"healthy"}
 ```
 
-## 7. Create API Token
+## 7. Create API Key
 
 ```bash
-npm run token:create --note "Extension"
-# Save the output token!
+npm run admin:create-key "Extension"
+# Save the output key securely!
 ```
 
 ## Troubleshooting
