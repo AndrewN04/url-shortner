@@ -69,7 +69,7 @@
 - [x] Options page (API key storage)
 - [x] TTL expiration inputs (days, hours, minutes, seconds)
 - [x] SVG icons
-- [ ] Test in both browsers
+- [x] Test in both browsers
 
 ### Part 6: Final Polish
 
