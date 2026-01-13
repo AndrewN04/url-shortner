@@ -49,17 +49,19 @@
 
 ---
 
-## In Progress
+### Part 4: Deploy to Vercel ✅
 
-### Part 4: Deploy to Vercel
+- [x] Create new Vercel project (separate from a04.dev)
+- [x] Connect Neon integration
+- [x] Add environment variables (API_KEY_PEPPER, MAX_TTL_SECONDS)
+- [x] Add go.a04.dev domain (CNAME)
+- [x] Generate production API key
+- [x] Verify health endpoint
+- [x] Test shorten + redirect flow
 
-- [ ] Create new Vercel project (separate from a04.dev)
-- [ ] Connect Neon integration
-- [ ] Add environment variables (API_KEY_PEPPER)
-- [ ] Add go.a04.dev domain (CNAME)
-- [ ] Generate first API key
-- [ ] Verify health endpoint
-- [ ] Test shorten + redirect flow
+---
+
+## Not Started
 
 ### Part 5: Browser Extension
 

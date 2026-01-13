@@ -41,7 +41,7 @@ Content-Type: application/json
 - URL format validation (http/https only, max 2048 chars)
 - SSRF protection via DNS resolution + private IP blocking
 - Rate limiting: 100 req/min per IP, 1000 req/min per key
-- TTL bounds: 60 seconds to 30 days
+- TTL bounds: 60 seconds to 14 days
 - Collision retry (up to 5 attempts)
 
 ### GET /:code

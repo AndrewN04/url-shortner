@@ -38,7 +38,7 @@ node -e "console.log(require('crypto').randomBytes(32).toString('hex'))"
 Add in Vercel → Settings → Environment Variables:
 
 - `API_KEY_PEPPER`: (generated value)
-- `MAX_TTL_SECONDS`: `2592000`
+- `MAX_TTL_SECONDS`: `1209600`
 
 ## 5. Run Migrations
 
