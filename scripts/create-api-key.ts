@@ -9,7 +9,9 @@ import { config as dotenvConfig } from "dotenv";
 import { neon } from "@neondatabase/serverless";
 import { generateApiKey, hashApiKey } from "../lib/crypto";
 
-dotenvConfig();
+// Load .env.local for local development (Next.js convention)
+dotenvConfig({ path: ".env.local" });
+dotenvConfig({ path: ".env" });
 
 async function createApiKey() {
     const note = process.argv[2] ?? null;

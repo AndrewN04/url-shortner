@@ -6,7 +6,9 @@
 import { config as dotenvConfig } from "dotenv";
 import { neon } from "@neondatabase/serverless";
 
-dotenvConfig();
+// Load .env.local for local development (Next.js convention)
+dotenvConfig({ path: ".env.local" });
+dotenvConfig({ path: ".env" });
 
 async function listApiKeys() {
     console.log("Listing API keys...\n");

@@ -7,8 +7,10 @@ import { config as dotenvConfig } from "dotenv";
 import { neon } from "@neondatabase/serverless";
 import { migrations } from "../lib/migrations";
 
-// Load .env for local development
-dotenvConfig();
+// Load .env.local for local development (Next.js convention)
+dotenvConfig({ path: ".env.local" });
+// Fallback to .env if .env.local doesn't exist
+dotenvConfig({ path: ".env" });
 
 async function migrate() {
     console.log("Starting database migration...\n");
@@ -47,14 +49,24 @@ async function migrate() {
         console.log(`→ Applying migration ${migration.version}: ${migration.name}...`);
 
         try {
-            // Execute migration SQL statements
+            // Execute migration SQL statements one at a time
+            // Split on semicolons not inside quotes, filter empty/comments
             const statements = migration.sql
-                .split(/;(?=(?:[^']*'[^']*')*[^']*$)/)
-                .map((s) => s.trim())
-                .filter((s) => s.length > 0 && !s.startsWith("--"));
+                .split(/;/)
+                .map((s: string) => s.trim())
+                .filter((s: string) => {
+                    // Remove empty lines and pure comment lines
+                    const lines = s.split('\n').filter(line => {
+                        const trimmed = line.trim();
+                        return trimmed.length > 0 && !trimmed.startsWith('--');
+                    });
+                    return lines.length > 0;
+                });
 
             for (const statement of statements) {
-                await sql([statement] as unknown as TemplateStringsArray);
+                // Skip if it's just whitespace after filtering
+                if (!statement.trim()) continue;
+                await sql.query(statement);
             }
 
             // Record migration

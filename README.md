@@ -45,9 +45,14 @@ npm run dev
 ## Admin Scripts
 
 ```bash
-npm run admin:create-key "my key"  # Create API key
-npm run admin:list-keys            # List all keys
-npm run admin:revoke-key <key_id>  # Revoke a key
+# API Key Management
+npm run admin:create-key -- --note "my key"  # Create API key
+npm run admin:list-keys                       # List all keys
+npm run admin:revoke-key -- <key_id>          # Revoke a key
+
+# Link Management
+npm run admin:list-links                      # List all links
+npm run admin:revoke-link -- --code <code>    # Revoke a link
 ```
 
 ## Docs

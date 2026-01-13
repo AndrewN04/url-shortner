@@ -14,7 +14,9 @@
     "db:migrate:prod": "NODE_ENV=production tsx scripts/migrate.ts",
     "admin:create-key": "tsx scripts/create-api-key.ts",
     "admin:revoke-key": "tsx scripts/revoke-api-key.ts",
-    "admin:list-keys": "tsx scripts/list-api-keys.ts"
+    "admin:list-keys": "tsx scripts/list-api-keys.ts",
+    "admin:revoke-link": "tsx scripts/revoke-link.ts",
+    "admin:list-links": "tsx scripts/list-links.ts"
   },
   "dependencies": {
     "@neondatabase/serverless": "^1.0.2",

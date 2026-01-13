@@ -27,27 +27,29 @@
 
 ---
 
-## In Progress
+### Part 3: Core Endpoints ✅
 
-### Part 3: Core Endpoints
-
-- [ ] POST /api/v1/shorten
-  - [ ] Bearer token auth (validate API key)
-  - [ ] URL validation (http/https only, max length)
-  - [ ] SSRF protection (DNS resolution, private IP blocking)
-  - [ ] Rate limiting (per-IP and per-token)
-  - [ ] TTL validation (60s to 30 days)
-  - [ ] Short code generation with collision retry
-  - [ ] Return { shortUrl, code, expiresAt }
-  - [ ] GET /:code (redirect)
-  - [ ] Lookup code in DB
-  - [ ] Check expiration
-  - [ ] Check revocation
-  - [ ] 302 redirect or 404/410
+- [x] POST /api/v1/shorten
+  - [x] Bearer token auth (validate API key)
+  - [x] URL validation (http/https only, max length)
+  - [x] SSRF protection (DNS resolution, private IP blocking)
+  - [x] Rate limiting (per-IP and per-token)
+  - [x] TTL validation (60s to 30 days)
+  - [x] Short code generation with collision retry
+  - [x] Return { shortUrl, code, expiresAt }
+- [x] GET /:code (redirect)
+  - [x] Lookup code in DB
+  - [x] Check expiration
+  - [x] Check revocation
+  - [x] 302 redirect or 404/410
+- [x] Admin scripts for link management
+  - [x] npm run admin:list-links
+  - [x] npm run admin:revoke-link
+- [x] Package review & audit (69 tests passing)
 
 ---
 
-## Not Started
+## In Progress
 
 ### Part 4: Deploy to Vercel
 
