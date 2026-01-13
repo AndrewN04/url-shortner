@@ -53,6 +53,11 @@ async function init() {
     if (tabs[0]?.url) {
         currentUrlInput.value = tabs[0].url;
     }
+    // Allow editing and select all on focus
+    currentUrlInput.readOnly = false;
+    currentUrlInput.addEventListener('focus', function () {
+        this.select();
+    });
 }
 
 // Shorten URL
@@ -77,7 +82,7 @@ async function shortenUrl() {
                 'Authorization': `Bearer ${apiKey}`,
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ url, ttlSeconds: calculateTtlSeconds() })
+            body: JSON.stringify({ url, ttl: calculateTtlSeconds() })
         });
 
         const data = await response.json();
@@ -89,7 +94,7 @@ async function shortenUrl() {
         // Show result
         shortUrlInput.value = data.shortUrl;
         const expiresDate = new Date(data.expiresAt);
-        expiresAtP.textContent = `Expires: ${expiresDate.toLocaleDateString()}`;
+        expiresAtP.textContent = `Expires: ${expiresDate.toLocaleDateString()} at ${expiresDate.toLocaleTimeString()}`;
         resultDiv.classList.remove('hidden');
 
         // Auto-copy to clipboard

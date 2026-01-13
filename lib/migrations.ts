@@ -4,16 +4,16 @@
  */
 
 export interface Migration {
-    version: number;
-    name: string;
-    sql: string;
+  version: number;
+  name: string;
+  sql: string;
 }
 
 export const migrations: Migration[] = [
-    {
-        version: 1,
-        name: "initial_schema",
-        sql: `
+  {
+    version: 1,
+    name: "initial_schema",
+    sql: `
       -- API Keys table
       CREATE TABLE IF NOT EXISTS api_keys (
         key_id UUID PRIMARY KEY DEFAULT gen_random_uuid(),
@@ -50,11 +50,11 @@ export const migrations: Migration[] = [
         applied_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
       );
     `,
-    },
-    {
-        version: 2,
-        name: "rate_limits_table",
-        sql: `
+  },
+  {
+    version: 2,
+    name: "rate_limits_table",
+    sql: `
       -- Rate limiting table (DB-backed for Vercel compatibility)
       CREATE TABLE IF NOT EXISTS rate_limits (
         id TEXT PRIMARY KEY, -- format: "ip:{ip}" or "token:{key_id}"
@@ -65,5 +65,14 @@ export const migrations: Migration[] = [
       -- Index for cleanup of old rate limit entries
       CREATE INDEX IF NOT EXISTS idx_rate_limits_window ON rate_limits(window_start);
     `,
-    },
+  },
+  {
+    version: 3,
+    name: "add_link_seq_id",
+    sql: `
+      -- Add sequential ID for easier link management
+      ALTER TABLE links ADD COLUMN IF NOT EXISTS seq_id SERIAL;
+      CREATE UNIQUE INDEX IF NOT EXISTS idx_links_seq_id ON links(seq_id);
+    `,
+  },
 ];

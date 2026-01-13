@@ -52,7 +52,7 @@ async function revokeApiKey() {
 
         const { note, revoked_at } = result[0]!;
 
-        console.log("✓ API key revoked successfully.");
+        console.log("API key revoked successfully.");
         console.log(`  Key ID:     ${keyId}`);
         console.log(`  Note:       ${note ?? "(none)"}`);
         console.log(`  Revoked at: ${revoked_at}`);

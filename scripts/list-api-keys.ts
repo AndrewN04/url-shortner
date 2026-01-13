@@ -41,7 +41,7 @@ async function listApiKeys() {
         console.log("─".repeat(80));
 
         for (const key of result) {
-            const status = key.revoked_at ? "🔴 REVOKED" : "🟢 ACTIVE";
+            const status = key.revoked_at ? "REVOKED" : "ACTIVE";
             console.log(`${status}  ${key.key_id}`);
             console.log(`         Created: ${key.created_at}`);
             if (key.revoked_at) {

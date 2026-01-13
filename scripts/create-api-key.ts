@@ -62,7 +62,7 @@ async function createApiKey() {
         console.log(
             "╚════════════════════════════════════════════════════════════════╝"
         );
-        console.log("\n⚠️  Store this key securely. It will NOT be shown again.");
+        console.log("\nStore this key securely. It will NOT be shown again.");
     } catch (error) {
         console.error("Failed to create API key:", error);
         process.exit(1);

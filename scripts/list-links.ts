@@ -12,6 +12,7 @@ dotenvConfig({ path: ".env.local" });
 dotenvConfig({ path: ".env" });
 
 interface LinkRecord {
+    seq_id: number;
     code: string;
     url: string;
     expires_at: string | null;
@@ -28,34 +29,27 @@ async function listLinks() {
     const sql = neon(databaseUrl);
 
     const result = await sql`
-        SELECT code, url, expires_at, revoked_at, created_at
+        SELECT seq_id, code, url, expires_at, revoked_at, created_at
         FROM links
-        ORDER BY created_at DESC
+        WHERE revoked_at IS NULL
+          AND (expires_at IS NULL OR expires_at > NOW())
+        ORDER BY seq_id DESC
         LIMIT 50
     `;
 
     if (result.length === 0) {
-        console.log("No links found.");
+        console.log("No active links found.");
         return;
     }
 
-    console.log(`Found ${result.length} link(s):\n`);
+    console.log(`Found ${result.length} active link(s):\n`);
 
     for (const row of result as LinkRecord[]) {
-        const status = row.revoked_at
-            ? "🚫 REVOKED"
-            : row.expires_at && new Date(row.expires_at) < new Date()
-                ? "⏰ EXPIRED"
-                : "✅ ACTIVE";
-
-        console.log(`${status} ${row.code}`);
+        console.log(`[${row.seq_id}] ${row.code}`);
         console.log(`   URL: ${row.url}`);
         console.log(`   Created: ${row.created_at}`);
         if (row.expires_at) {
             console.log(`   Expires: ${row.expires_at}`);
-        }
-        if (row.revoked_at) {
-            console.log(`   Revoked: ${row.revoked_at}`);
         }
         console.log();
     }
