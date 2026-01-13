@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=320">
+    <title>URL Shortener</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>🔗 Shorten URL</h1>
+
+        <div id="no-api-key" class="hidden">
+            <p class="warning">⚠️ No API key configured</p>
+            <button id="open-options" class="btn btn-secondary">Configure API Key</button>
+        </div>
+
+        <div id="main-content" class="hidden">
+            <div class="url-display">
+                <label>Current URL:</label>
+                <input type="text" id="current-url" readonly>
+            </div>
+
+            <div class="ttl-section">
+                <label>Expires in:</label>
+                <div class="ttl-inputs">
+                    <div class="ttl-field">
+                        <input type="number" id="ttl-days" min="0" max="14">
+                        <span>days</span>
+                    </div>
+                    <div class="ttl-field">
+                        <input type="number" id="ttl-hours" min="0" max="23">
+                        <span>hrs</span>
+                    </div>
+                    <div class="ttl-field">
+                        <input type="number" id="ttl-minutes" min="0" max="59">
+                        <span>min</span>
+                    </div>
+                    <div class="ttl-field">
+                        <input type="number" id="ttl-seconds" min="0" max="59">
+                        <span>sec</span>
+                    </div>
+                </div>
+                <p class="ttl-hint">Max: 14 days</p>
+            </div>
+
+            <button id="shorten-btn" class="btn btn-primary">
+                <span id="btn-text">Shorten</span>
+                <span id="btn-loading" class="hidden">...</span>
+            </button>
+
+            <div id="result" class="hidden">
+                <div class="result-box">
+                    <input type="text" id="short-url" readonly>
+                    <button id="copy-btn" class="btn btn-copy" title="Copy to clipboard">📋</button>
+                </div>
+                <p id="expires-at" class="meta"></p>
+            </div>
+
+            <div id="error" class="hidden">
+                <p class="error"></p>
+            </div>
+        </div>
+
+        <footer>
+            <a href="#" id="options-link">Settings</a>
+        </footer>
+    </div>
+
+    <script src="popup.js"></script>
+</body>
+
+</html>

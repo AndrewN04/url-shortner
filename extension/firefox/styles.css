@@ -1,0 +1,298 @@
+/* Base styles */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #1a1a1a;
+  background: #ffffff;
+}
+
+.container {
+  width: 320px;
+  padding: 16px;
+}
+
+.container.options {
+  width: 400px;
+}
+
+/* Typography */
+h1 {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: #111;
+}
+
+h3 {
+  font-size: 14px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+label {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  color: #666;
+  margin-bottom: 4px;
+}
+
+/* Form elements */
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px 12px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  font-size: 13px;
+  transition: border-color 0.2s;
+}
+
+input[type="text"]:focus,
+input[type="password"]:focus {
+  outline: none;
+  border-color: #0066ff;
+}
+
+input[readonly] {
+  background: #f5f5f5;
+  cursor: default;
+}
+
+/* Buttons */
+.btn {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.btn-primary {
+  background: #0066ff;
+  color: white;
+  width: 100%;
+}
+
+.btn-primary:hover {
+  background: #0052cc;
+}
+
+.btn-primary:disabled {
+  background: #ccc;
+  cursor: not-allowed;
+}
+
+.btn-secondary {
+  background: #f0f0f0;
+  color: #333;
+}
+
+.btn-secondary:hover {
+  background: #e0e0e0;
+}
+
+.btn-copy {
+  padding: 8px 12px;
+  background: #f0f0f0;
+  border-radius: 0 6px 6px 0;
+  font-size: 16px;
+}
+
+.btn-copy:hover {
+  background: #e0e0e0;
+}
+
+.btn-icon {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 16px;
+  padding: 4px;
+  position: absolute;
+  right: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+/* Layout */
+.url-display {
+  margin-bottom: 12px;
+}
+
+/* TTL Section */
+.ttl-section {
+  margin-bottom: 12px;
+}
+
+.ttl-inputs {
+  display: flex;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.ttl-field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.ttl-field input[type="number"] {
+  width: 100%;
+  padding: 8px 4px;
+  text-align: center;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 14px;
+  -moz-appearance: textfield;
+}
+
+.ttl-field input[type="number"]::-webkit-outer-spin-button,
+.ttl-field input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.ttl-field span {
+  font-size: 10px;
+  color: #888;
+  margin-top: 2px;
+}
+
+.ttl-hint {
+  font-size: 11px;
+  color: #888;
+  text-align: right;
+  margin-top: 4px;
+}
+
+.form-group {
+  margin-bottom: 16px;
+  position: relative;
+}
+
+.form-group input {
+  padding-right: 40px;
+}
+
+.result-box {
+  display: flex;
+  margin-top: 16px;
+}
+
+.result-box input {
+  flex: 1;
+  border-radius: 6px 0 0 6px;
+  border-right: none;
+}
+
+.actions {
+  display: flex;
+  gap: 8px;
+}
+
+.actions .btn {
+  flex: 1;
+}
+
+/* Messages */
+.warning {
+  color: #b45309;
+  background: #fef3c7;
+  padding: 12px;
+  border-radius: 6px;
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.error {
+  color: #dc2626;
+  background: #fef2f2;
+  padding: 12px;
+  border-radius: 6px;
+  margin-top: 12px;
+}
+
+.status {
+  padding: 12px;
+  border-radius: 6px;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.status.success {
+  background: #d1fae5;
+  color: #065f46;
+}
+
+.status.error {
+  background: #fef2f2;
+  color: #dc2626;
+}
+
+.meta {
+  font-size: 12px;
+  color: #666;
+  margin-top: 8px;
+  text-align: center;
+}
+
+.help-text {
+  font-size: 12px;
+  color: #888;
+  margin-bottom: 16px;
+}
+
+/* Footer */
+footer {
+  margin-top: 16px;
+  padding-top: 12px;
+  border-top: 1px solid #eee;
+  text-align: center;
+}
+
+footer a {
+  color: #666;
+  text-decoration: none;
+  font-size: 12px;
+}
+
+footer a:hover {
+  color: #0066ff;
+}
+
+hr {
+  border: none;
+  border-top: 1px solid #eee;
+  margin: 20px 0;
+}
+
+.info {
+  text-align: center;
+  color: #666;
+}
+
+.info a {
+  color: #0066ff;
+}
+
+.version {
+  font-size: 12px;
+  color: #999;
+  margin-top: 4px;
+}
+
+/* Utility */
+.hidden {
+  display: none !important;
+}

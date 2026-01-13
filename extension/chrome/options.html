@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=400">
+    <title>URL Shortener Settings</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container options">
+        <h1>⚙️ Settings</h1>
+
+        <div class="form-group">
+            <label for="api-key">API Key</label>
+            <input type="password" id="api-key" placeholder="sk_...">
+            <button id="toggle-visibility" class="btn-icon" title="Show/hide">👁️</button>
+        </div>
+
+        <p class="help-text">
+            Your API key is stored securely in browser sync storage.
+            It will sync across your devices if you're signed into Chrome.
+        </p>
+
+        <div class="actions">
+            <button id="save-btn" class="btn btn-primary">Save</button>
+            <button id="clear-btn" class="btn btn-secondary">Clear</button>
+        </div>
+
+        <div id="status" class="hidden"></div>
+
+        <hr>
+
+        <div class="info">
+            <h3>About</h3>
+            <p>URL Shortener for <a href="https://go.a04.dev" target="_blank">go.a04.dev</a></p>
+            <p class="version">Version 1.0.0</p>
+        </div>
+    </div>
+
+    <script src="options.js"></script>
+</body>
+
+</html>

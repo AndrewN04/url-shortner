@@ -61,20 +61,17 @@
 
 ---
 
-## Not Started
+### Part 5: Browser Extension ✅
 
-### Part 5: Browser Extension
-
-- [ ] Chrome/Edge manifest v3
-- [ ] Firefox manifest v2
-- [ ] Popup UI (current tab URL, shorten button, copy result)
-- [ ] Options page (API key storage)
-- [ ] Background service worker
+- [x] Chrome/Edge manifest v3
+- [x] Firefox manifest v2
+- [x] Popup UI (current tab URL, shorten button, copy result)
+- [x] Options page (API key storage)
+- [x] TTL expiration inputs (days, hours, minutes, seconds)
+- [x] SVG icons
 - [ ] Test in both browsers
 
 ### Part 6: Final Polish
 
-- [ ] GitHub Actions CI (lint, typecheck, test)
 - [ ] Update README with usage examples
 - [ ] Final security review
-- [ ] Tag v1.0.0 release
