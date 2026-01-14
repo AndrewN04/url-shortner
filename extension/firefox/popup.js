@@ -34,6 +34,9 @@ function calculateTtlSeconds() {
     const seconds = parseInt(ttlSeconds.value) || 0;
 
     const total = (days * 86400) + (hours * 3600) + (minutes * 60) + seconds;
+    if (total === 0) {
+        return 1209600; // Default to 14 days if all fields are zero
+    }
 
     // Enforce min 60 seconds, max 14 days (1209600 seconds)
     return Math.min(Math.max(total, 60), 1209600);
