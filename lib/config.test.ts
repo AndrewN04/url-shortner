@@ -37,7 +37,7 @@ describe("config", () => {
     describe("maxTtlSeconds", () => {
         it("should return default value when not set", () => {
             vi.stubEnv("MAX_TTL_SECONDS", "");
-            expect(config.maxTtlSeconds()).toBe(30 * 24 * 60 * 60);
+            expect(config.maxTtlSeconds()).toBe(14 * 24 * 60 * 60);
         });
 
         it("should parse custom value", () => {

@@ -22,7 +22,7 @@ export const config = {
   // Limits
   maxTtlSeconds: () => {
     const value = process.env["MAX_TTL_SECONDS"];
-    return value ? parseInt(value, 10) : 30 * 24 * 60 * 60; // 14 days default
+    return value ? parseInt(value, 10) : 14 * 24 * 60 * 60; // 14 days default
   },
 
   minTtlSeconds: 60, // 1 minute minimum

@@ -95,8 +95,8 @@ API_KEY_PEPPER=your-64-character-hex-string-here
 # Maximum TTL for links in seconds
 # This is the upper limit - users cannot create links that last longer than this
 # Examples:
-#   1209600 = 14 days (default)
 #   2592000 = 30 days
+#   1209600 = 14 days (default)
 #   604800  = 7 days
 #   86400   = 1 day
 # Set this to whatever maximum you want for your instance
