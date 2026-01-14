@@ -38,10 +38,10 @@ async function clearSettings() {
 function toggleVisibility() {
     if (apiKeyInput.type === 'password') {
         apiKeyInput.type = 'text';
-        toggleVisibilityBtn.textContent = '🙈';
+        toggleVisibilityBtn.textContent = 'Hide';
     } else {
         apiKeyInput.type = 'password';
-        toggleVisibilityBtn.textContent = '👁️';
+        toggleVisibilityBtn.textContent = 'Show';
     }
 }
 

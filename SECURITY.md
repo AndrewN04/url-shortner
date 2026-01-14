@@ -40,7 +40,7 @@ npm run admin:revoke-key <key_id>
 
 ## Link Expiration
 
-- Min: 60s, Max: 30 days, Default: none
+- Min: 60s, Max: 14 days, Default: none
 - Expired → 410 Gone
 - Revoked → 404 Not Found
 

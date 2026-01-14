@@ -2,11 +2,13 @@
  * Tests for URL validation and SSRF protection
  */
 
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi, beforeEach, afterEach } from "vitest";
 import {
     isPrivateIp,
     isBlockedHostname,
     validateUrlFormat,
+    validateUrlDns,
+    validateUrl,
 } from "@/lib/url-validation";
 
 describe("URL validation", () => {
@@ -123,6 +125,87 @@ describe("URL validation", () => {
             const result = validateUrlFormat("HTTP://EXAMPLE.COM");
             expect(result.valid).toBe(true);
             expect(result.normalizedUrl).toBe("http://example.com/");
+        });
+    });
+
+    describe("validateUrlDns", () => {
+        // Note: validateUrlDns tests use real DNS resolution.
+        // These tests use real hostnames that should always work.
+
+        it("should pass validation for real public domains", async () => {
+            // example.com is a real domain that should always resolve
+            const result = await validateUrlDns("https://example.com");
+
+            expect(result.valid).toBe(true);
+            expect(result.normalizedUrl).toBe("https://example.com/");
+        });
+
+        it("should fail for non-existent domains", async () => {
+            // This domain should not exist
+            const result = await validateUrlDns(
+                "https://this-domain-definitely-does-not-exist-12345.invalid"
+            );
+
+            expect(result.valid).toBe(false);
+            expect(result.error).toBeDefined();
+        });
+
+        it("should inherit format validation errors", async () => {
+            const result = await validateUrlDns("not-a-url");
+
+            expect(result.valid).toBe(false);
+            expect(result.error).toBeDefined();
+        });
+
+        it("should reject invalid schemes before DNS check", async () => {
+            const result = await validateUrlDns("ftp://example.com");
+
+            expect(result.valid).toBe(false);
+        });
+
+        it("should reject localhost before DNS check", async () => {
+            const result = await validateUrlDns("https://localhost");
+
+            expect(result.valid).toBe(false);
+        });
+
+        it("should reject private IP addresses in URL before DNS", async () => {
+            const result = await validateUrlDns("https://192.168.1.1");
+
+            expect(result.valid).toBe(false);
+        });
+    });
+
+    describe("validateUrl", () => {
+        it("should perform full validation including DNS", async () => {
+            const result = await validateUrl("https://example.com");
+
+            expect(result.valid).toBe(true);
+            expect(result.normalizedUrl).toBe("https://example.com/");
+        });
+
+        it("should reject malformed URLs before DNS check", async () => {
+            const result = await validateUrl("javascript:alert(1)");
+
+            expect(result.valid).toBe(false);
+        });
+
+        it("should handle complex URLs with paths and queries", async () => {
+            const result = await validateUrl(
+                "https://example.com/path/to/page?foo=bar&baz=qux#section"
+            );
+
+            expect(result.valid).toBe(true);
+        });
+
+        it("should reject localhost variations", async () => {
+            expect((await validateUrl("http://localhost")).valid).toBe(false);
+            expect((await validateUrl("http://localhost:8080")).valid).toBe(false);
+        });
+
+        it("should reject loopback addresses", async () => {
+            expect((await validateUrl("http://127.0.0.1")).valid).toBe(false);
+            expect((await validateUrl("http://127.0.0.1:3000")).valid).toBe(false);
         });
     });
 });

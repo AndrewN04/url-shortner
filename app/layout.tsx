@@ -16,6 +16,9 @@ export const metadata: Metadata = {
   title: "a04.dev Link Shortener",
   description: "URL shortening service",
   robots: "noindex, nofollow",
+  icons: {
+    icon: "/favicon.ico",
+  },
 };
 
 export default function RootLayout({

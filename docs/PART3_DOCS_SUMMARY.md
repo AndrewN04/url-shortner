@@ -21,7 +21,7 @@ Content-Type: application/json
 
 {
   "url": "https://example.com/long-path",
-  "ttl": 86400  // optional, seconds (default: 30 days)
+  "ttl": 1209600  // optional, seconds (default: 14 days)
 }
 ```
 
@@ -144,11 +144,11 @@ Test Files  6 passed (6)
 
 All packages verified against latest documentation:
 
-| Package                  | Version  | Status                             |
-| ------------------------ | -------- | ---------------------------------- |
-| @neondatabase/serverless | 1.0.2    | ✅ Using latest patterns           |
-| next                     | 16.1.1   | ✅ Using App Router best practices |
-| crypto (Node.js)         | built-in | ✅ HMAC-SHA256 + timingSafeEqual   |
+| Package                  | Version  | Status                          |
+| ------------------------ | -------- | ------------------------------- |
+| @neondatabase/serverless | 1.0.2    | Using latest patterns           |
+| next                     | 16.1.1   | Using App Router best practices |
+| crypto (Node.js)         | built-in | HMAC-SHA256 + timingSafeEqual   |
 
 ---
 

@@ -14,7 +14,7 @@ body {
 }
 
 .container {
-  width: 320px;
+  width: 380px;
   padding: 16px;
 }
 
@@ -105,23 +105,12 @@ input[readonly] {
   padding: 8px 12px;
   background: #f0f0f0;
   border-radius: 0 6px 6px 0;
-  font-size: 16px;
+  font-size: 12px;
+  min-width: 60px;
 }
 
 .btn-copy:hover {
   background: #e0e0e0;
-}
-
-.btn-icon {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-  padding: 4px;
-  position: absolute;
-  right: 8px;
-  top: 50%;
-  transform: translateY(-50%);
 }
 
 /* Layout */
@@ -179,11 +168,31 @@ input[readonly] {
 
 .form-group {
   margin-bottom: 16px;
-  position: relative;
 }
 
-.form-group input {
-  padding-right: 40px;
+.input-group {
+  display: flex;
+}
+
+.input-group input {
+  flex: 1;
+  border-radius: 6px 0 0 6px;
+  border-right: none;
+}
+
+.btn-toggle {
+  padding: 10px 0;
+  background: #f0f0f0;
+  border: 1px solid #ddd;
+  border-left: none;
+  border-radius: 0 6px 6px 0;
+  font-size: 12px;
+  width: 50px;
+  text-align: center;
+}
+
+.btn-toggle:hover {
+  background: #e0e0e0;
 }
 
 .result-box {
@@ -278,6 +287,25 @@ hr {
   margin: 20px 0;
 }
 
+/* QR Code Section */
+.qr-section {
+  margin-top: 16px;
+  text-align: center;
+}
+
+#qr-canvas {
+  display: block;
+  margin: 0 auto 12px auto;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  background: white;
+}
+
+.btn-small {
+  padding: 6px 12px;
+  font-size: 12px;
+}
+
 .info {
   text-align: center;
   color: #666;
@@ -296,4 +324,113 @@ hr {
 /* Utility */
 .hidden {
   display: none !important;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: 16px;
+  border-bottom: 1px solid #ddd;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px 16px;
+  border: none;
+  background: transparent;
+  font-size: 14px;
+  font-weight: 500;
+  color: #666;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  margin-bottom: -1px;
+  transition: all 0.2s;
+}
+
+.tab:hover {
+  color: #333;
+}
+
+.tab.active {
+  color: #0066ff;
+  border-bottom-color: #0066ff;
+}
+
+.tab-content {
+  min-height: 200px;
+  max-height: 450px;
+  overflow-y: auto;
+}
+
+.empty-history {
+  text-align: center;
+  color: #888;
+  padding: 40px 20px;
+}
+
+.history-item {
+  padding: 12px;
+  border: 1px solid #eee;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  background: #fafafa;
+}
+
+.history-item-content {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+
+.history-urls {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+}
+
+.history-short-url {
+  font-size: 13px;
+  font-weight: 600;
+  color: #0066ff;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 4px;
+}
+
+.history-original-url {
+  font-size: 11px;
+  color: #666;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin-bottom: 4px;
+}
+
+.history-expires {
+  font-size: 11px;
+  color: #888;
+}
+
+.history-qr {
+  flex-shrink: 0;
+}
+
+.history-qr-canvas {
+  display: block;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  background: white;
+}
+
+.history-actions {
+  display: flex;
+  gap: 8px;
+}
+
+.history-actions .btn {
+  flex: 1;
+  font-size: 11px;
+  padding: 6px 8px;
 }

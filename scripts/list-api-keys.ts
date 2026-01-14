@@ -25,30 +25,26 @@ async function listApiKeys() {
       SELECT 
         key_id,
         created_at,
-        revoked_at,
         note
       FROM api_keys
+      WHERE revoked_at IS NULL
       ORDER BY created_at DESC
     `;
 
         if (result.length === 0) {
-            console.log("No API keys found.");
+            console.log("No active API keys found.");
             console.log("\nCreate one with: npm run admin:create-key [note]");
             return;
         }
 
-        console.log(`Found ${result.length} API key(s):\n`);
+        console.log(`Found ${result.length} active API key(s):\n`);
         console.log("─".repeat(80));
 
         for (const key of result) {
-            const status = key.revoked_at ? "REVOKED" : "ACTIVE";
-            console.log(`${status}  ${key.key_id}`);
-            console.log(`         Created: ${key.created_at}`);
-            if (key.revoked_at) {
-                console.log(`         Revoked: ${key.revoked_at}`);
-            }
+            console.log(`ACTIVE  ${key.key_id}`);
+            console.log(`        Created: ${key.created_at}`);
             if (key.note) {
-                console.log(`         Note:    ${key.note}`);
+                console.log(`        Note:    ${key.note}`);
             }
             console.log("─".repeat(80));
         }

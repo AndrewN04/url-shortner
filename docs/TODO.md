@@ -2,7 +2,7 @@
 
 ## Completed
 
-### Part 1: Architecture & Docs ✅
+### Part 1: Architecture & Docs
 
 - [x] Research Vercel, Neon, Next.js docs
 - [x] Create PART1_DOCS_SUMMARY.md
@@ -11,7 +11,7 @@
 - [x] Create README.md
 - [x] Create deploy/vercel-setup.md
 
-### Part 2: Next.js Skeleton ✅
+### Part 2: Next.js Skeleton
 
 - [x] Initialize with create-next-app (Tailwind, Turbopack)
 - [x] Set up TypeScript strict mode
@@ -27,14 +27,14 @@
 
 ---
 
-### Part 3: Core Endpoints ✅
+### Part 3: Core Endpoints
 
 - [x] POST /api/v1/shorten
   - [x] Bearer token auth (validate API key)
   - [x] URL validation (http/https only, max length)
   - [x] SSRF protection (DNS resolution, private IP blocking)
   - [x] Rate limiting (per-IP and per-token)
-  - [x] TTL validation (60s to 30 days)
+  - [x] TTL validation (60s to 14 days)
   - [x] Short code generation with collision retry
   - [x] Return { shortUrl, code, expiresAt }
 - [x] GET /:code (redirect)
@@ -49,7 +49,7 @@
 
 ---
 
-### Part 4: Deploy to Vercel ✅
+### Part 4: Deploy to Vercel
 
 - [x] Create new Vercel project (separate from a04.dev)
 - [x] Connect Neon integration
@@ -61,17 +61,17 @@
 
 ---
 
-### Part 5: Browser Extension ✅
+### Part 5: Browser Extension
 
 - [x] Chrome/Edge manifest v3
 - [x] Firefox manifest v2
 - [x] Popup UI (current tab URL, shorten button, copy result)
 - [x] Options page (API key storage)
 - [x] TTL expiration inputs (days, hours, minutes, seconds)
-- [x] SVG icons
+- [x] icons
 - [x] Test in both browsers
 
 ### Part 6: Final Polish
 
-- [ ] Update README with usage examples
-- [ ] Final security review
+- [x] Update README with usage examples
+- [x] Final security review

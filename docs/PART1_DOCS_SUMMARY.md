@@ -19,7 +19,7 @@
 | Runtime     | Node.js                  | Need `dns` module for SSRF checks, `crypto.timingSafeEqual` |
 | DB Client   | @neondatabase/serverless | HTTP driver, low latency, works with Vercel serverless      |
 | Code length | 12 chars                 | 58^12 keyspace, enumeration-resistant                       |
-| Max TTL     | 30 days                  | Balance utility vs abuse                                    |
+| Max TTL     | 14 days                  | Balance utility vs abuse                                    |
 
 ---
 
@@ -44,7 +44,7 @@ Add `go.a04.dev` to shortener project only. DNS: `go CNAME cname.vercel-dns.com`
 **Manual:**
 
 - `API_KEY_PEPPER` — server secret for HMAC key hashing
-- `MAX_TTL_SECONDS` — 2592000 (30 days)
+- `MAX_TTL_SECONDS` — 1209600 (14 days)
 
 ---
 

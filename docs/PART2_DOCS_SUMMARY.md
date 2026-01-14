@@ -122,5 +122,4 @@ url-shortener/
 
 1. **Fixed modulo bias** in `generateShortCode()` - now uses rejection sampling
 2. **Updated docs** to remove Drizzle references (not used)
-3. **Removed unused** `public/` folder
-4. **Added distribution test** for short code uniformity
+3. **Added distribution test** for short code uniformity

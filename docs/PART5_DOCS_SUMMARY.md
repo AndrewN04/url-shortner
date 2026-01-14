@@ -81,7 +81,7 @@ extension/
 1. Click extension icon → **Configure API Key**
 2. Enter your production API key:
    ```
-   sk_88d899a9bad619f8b41a72a06ede960423a826729a018dffa9560604d2f1bb87
+   sk_...
    ```
 3. Click **Save**
 
@@ -110,19 +110,19 @@ extension/
 | `extension/chrome/options.html`   | Settings UI                   |
 | `extension/chrome/options.js`     | Settings logic                |
 | `extension/chrome/styles.css`     | Shared styles                 |
-| `extension/chrome/icons/*.svg`    | Extension icons               |
+| `extension/chrome/icons/*.png`    | Extension icons               |
 | `extension/firefox/manifest.json` | Firefox MV2 configuration     |
 | `extension/firefox/popup.html`    | Popup UI                      |
 | `extension/firefox/popup.js`      | Popup logic (browser.\* APIs) |
 | `extension/firefox/options.html`  | Settings UI                   |
 | `extension/firefox/options.js`    | Settings logic                |
 | `extension/firefox/styles.css`    | Shared styles                 |
-| `extension/firefox/icons/*.svg`   | Extension icons               |
+| `extension/firefox/icons/*.png`   | Extension icons               |
 
 ## Next Steps
 
-- [ ] Test in Chrome/Edge
-- [ ] Test in Firefox
-- [ ] Create PNG icons if needed for store submission
+- [x] Test in Chrome/Edge
+- [x] Test in Firefox
+- [x] Create PNG icons if needed for store submission
 - [ ] Publish to Chrome Web Store (optional)
 - [ ] Publish to Firefox Add-ons (optional)

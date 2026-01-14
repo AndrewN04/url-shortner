@@ -8,15 +8,15 @@ This document summarizes the deployment of the URL shortener to production.
 
 ## Deployment Overview
 
-| Component             | Status              |
-| --------------------- | ------------------- |
-| Vercel Project        | ✅ Deployed         |
-| Neon Database         | ✅ Connected        |
-| Environment Variables | ✅ Configured       |
-| Custom Domain         | ✅ go.a04.dev       |
-| SSL Certificate       | ✅ Auto-provisioned |
-| Migrations            | ✅ Applied          |
-| API Key               | ✅ Generated        |
+| Component             | Status           |
+| --------------------- | ---------------- |
+| Vercel Project        | Deployed         |
+| Neon Database         | Connected        |
+| Environment Variables | Configured       |
+| Custom Domain         | go.a04.dev       |
+| SSL Certificate       | Auto-provisioned |
+| Migrations            | Applied          |
+| API Key               | Generated        |
 
 ---
 
@@ -84,7 +84,7 @@ curl -X POST https://go.a04.dev/api/v1/shorten \
 https://go.a04.dev/56VYJDcZ3nhK → 302 → https://example.com/test
 ```
 
-All endpoints verified working ✅
+All endpoints verified working.
 
 ---
 

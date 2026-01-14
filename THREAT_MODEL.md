@@ -40,7 +40,7 @@ Personal URL shortener at `go.a04.dev`. Single authenticated user creates links;
 
 - Rate limit: 10/min per token, 30/min per IP
 - Token revocation
-- Link expiration (max 30 days)
+- Link expiration (max 14 days)
 
 ### T6: Expired/Revoked Links
 
